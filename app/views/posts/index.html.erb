@@ -1,5 +1,5 @@
-<% @posts.each do |post| %>
-  <p><%= post.message %> - 
+<% @posts.reverse.each do |post| %>
+  <p><%= post.message %> -
   <%= link_to 'Show', post_path(post) %></p>
 <% end %>
 
