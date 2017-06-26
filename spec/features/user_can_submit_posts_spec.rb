@@ -8,4 +8,12 @@ RSpec.feature "Timeline", type: :feature do
     click_button "Submit"
     expect(page).to have_content("Hello, world!")
   end
+
+  scenario "Posts are shown in revrse chronological order" do
+    Post.create(message: "First")
+    Post.create(message: "Second")
+    visit '/posts'
+    expect(page.body.index('Second') < page.body.index('First')).to be true
+  end
+
 end
