@@ -3,6 +3,11 @@
   <%= @post.message %>
 </p>
 
+<% @post.comments.each do |comment| %>
+	<p> <%= comment.commenter %> says: <br>
+	<%= comment.body %>
+<% end %>
+
 <h2>Add a comment:</h2>
 <%= form_for([@post, @post.comments.build]) do |f| %>
 <p>
