@@ -1,6 +1,6 @@
 class PostsController < ApplicationController
   before_action :require_login
-  
+
   def index
     @posts = Post.all.sort_by &:created_at
   end
@@ -20,6 +20,7 @@ class PostsController < ApplicationController
 	end
 
   def create
+    p post_params
     @post = Post.create(post_params)
     redirect_to posts_url
   end

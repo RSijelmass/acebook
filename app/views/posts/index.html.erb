@@ -1,13 +1,16 @@
 <%= link_to new_post_path do %>
   		New post
-<% end %>	
-
-<% @posts.reverse.each do |post| %>
-	<p>	
-		<%= post.message %> -
-		<%= link_to 'Show', post_path(post) %><br>
-  	Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
-		likes: <%= post.likes %> - 
-		<%= link_to 'Like', edit_post_path(post) %>
-	</p>
 <% end %>
+
+
+  <% @posts.reverse.each do |post| %>
+  	<p>
+      <section class="posts">
+        <%= post.message %> -
+      </section>
+  		<%= link_to 'Show', post_path(post) %><br>
+    	Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
+  		likes: <%= post.likes %> -
+  		<%= link_to 'Like', edit_post_path(post) %>
+  	</p>
+  <% end %>
