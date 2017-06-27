@@ -9,4 +9,12 @@ RSpec.describe Post, type: :model do
 			expect(post.message).to eq('Some body baby')
 		end
 	end	
+
+	describe 'records number of likes' do
+		it 'contains an initial "likes" value of 0' do
+			post = Post.create(message: 'like message')
+			expect(post.likes).to eq 0
+		end
+	end
+
 end

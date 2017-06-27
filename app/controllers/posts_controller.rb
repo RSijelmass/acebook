@@ -2,7 +2,7 @@ class PostsController < ApplicationController
   before_action :require_login
   
   def index
-    @posts = Post.all
+    @posts = Post.all.sort_by &:created_at
   end
 
   def show
@@ -12,6 +12,12 @@ class PostsController < ApplicationController
   def new
     @post = Post.new
   end
+
+	def edit
+		@post = Post.find(params[:id])
+		@post.increment!(:likes)
+		redirect_to posts_url
+	end
 
   def create
     @post = Post.create(post_params)
