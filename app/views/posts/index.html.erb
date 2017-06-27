@@ -1,6 +1,7 @@
 <% @posts.reverse.each do |post| %>
   <p><%= post.message %> -
-  <%= link_to 'Show', post_path(post) %></p>
+  <%= link_to 'Show', post_path(post) %><br>
+  Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %></p>
 <% end %>
 
 <br>
