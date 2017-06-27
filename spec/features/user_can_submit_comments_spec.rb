@@ -3,6 +3,7 @@ require 'rails_helper'
 RSpec.feature "Commenting", type: :feature do
 
   scenario "Can submit comments on existing posts and view them" do
+    sign_up
     Post.create(message: "Test Post")
     visit '/posts'
     click_link('Show')
