@@ -9,6 +9,12 @@ RSpec.feature "Timeline", type: :feature do
     expect(page).to have_content("Hello, world!")
   end
 
+  scenario "Posts have a timestamp" do
+    Post.create(message: "Hello!", created_at: Time.now.strftime('%-d/%m/%Y %H:%M'))
+    visit "/posts"
+    expect(page).to have_content(Time.now.strftime('%-d/%m/%Y'))
+  end
+
   scenario "Posts are shown in revrse chronological order" do
     Post.create(message: "First")
     Post.create(message: "Second")
