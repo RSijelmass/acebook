@@ -1,6 +1,7 @@
 <% @posts.reverse.each do |post| %>
-  <p><%= post.message %> -
-  <%= link_to 'Show', post_path(post) %></p>
+	<p><%= post.message %> -
+	<%= link_to 'Show', post_path(post) %><br>
+	likes: <%= post.likes %></p>
 <% end %>
 
 <br>
