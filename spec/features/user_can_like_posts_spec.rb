@@ -8,4 +8,22 @@ describe 'user can like posts' do
 		end
 	end
 
+	describe 'liking a post' do
+		before do
+			Post.create(message: "Please like me!")
+			visit '/posts'
+		end
+
+		it 'user can like a post' do
+			click_link 'Like'
+			expect(page).to have_content 'likes: 1'
+		end
+
+		it 'can be liked more than once' do
+			click_link 'Like'
+			click_link 'Like'
+			expect(page).to have_content 'likes: 2'
+		end
+	end
+
 end

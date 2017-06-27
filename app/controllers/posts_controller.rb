@@ -12,7 +12,8 @@ class PostsController < ApplicationController
   end
 
 	def edit
-		Post.update(params[:id], likes: 1)
+		@post = Post.find(params[:id])
+		@post.increment!(:likes)
 		redirect_to posts_url
 	end
 
