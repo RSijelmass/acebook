@@ -15,6 +15,15 @@ RSpec.feature "Timeline", type: :feature do
     expect(page).to have_content("Hello, world!")
   end
 
+  scenario "Can include line breaks to format posts" do
+    visit "/posts"
+    click_link "New post"
+    fill_in "Message", with: "Hello,\n\nworld!"
+    click_button "Submit"
+    expect(page.status_code).to be(200)
+    expect(page).to have_content("Hello,\n\nworld!")
+  end
+
   scenario "Posts have a timestamp" do
     Post.create(message: "Hello!", created_at: Time.now.strftime('%-d/%m/%Y %H:%M'))
     visit "/posts"

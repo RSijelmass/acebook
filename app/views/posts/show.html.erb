@@ -1,6 +1,8 @@
 <p>
   <strong>Post:</strong>
-  <%= @post.message %>
+  <section class="posts">
+    <%= @post.message %>
+  </section>
 </p>
 
 <% @post.comments.each do |comment| %>
