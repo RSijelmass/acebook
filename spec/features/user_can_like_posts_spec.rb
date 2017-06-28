@@ -21,10 +21,10 @@ describe 'user can like posts' do
 			expect(page).to have_content 'likes: 1'
 		end
 
-		it 'can be liked more than once' do
+		it 'only once each' do
 			click_link 'Like'
 			click_link 'Like'
-			expect(page).to have_content 'likes: 2'
+			expect(page).to have_content 'likes: 0'
 		end
 	end
 

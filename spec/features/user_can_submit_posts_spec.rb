@@ -38,8 +38,7 @@ RSpec.feature "Timeline", type: :feature do
   end
 
   scenario "Links in posts should be clickable" do
-    Post.create(message: "This is a link: www.google.com")
-    visit "/posts"
+    create_post("This is a link: www.google.com")
     click_link("www.google.com")
     expect(page.status_code).to be(200)
   end
