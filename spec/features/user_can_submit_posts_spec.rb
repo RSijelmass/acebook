@@ -25,15 +25,14 @@ RSpec.feature "Timeline", type: :feature do
   end
 
   scenario "Posts have a timestamp" do
-    Post.create(message: "Hello!", created_at: Time.now.strftime('%-d/%m/%Y %H:%M'))
-    visit "/posts"
+		create_post
     expect(page).to have_content(Time.now.strftime('%-d/%m/%Y'))
   end
 
   scenario "Posts are shown in reverse chronological order" do
-    Post.create(message: "First")
-    Post.create(message: "Second")
-    visit '/posts'
+		create_post('First')
+		create_post('Second')
+
     expect(page.status_code).to be(200)
     expect(page.body.index('Second') < page.body.index('First')).to be true
   end

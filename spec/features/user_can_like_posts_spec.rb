@@ -3,7 +3,7 @@ describe 'user can like posts' do
 	describe 'see the number of likes' do
 		it 'has an initial like value of 0' do
 			sign_up
-			Post.create(message: 'Why does nobody like me?')
+			create_post
 			visit '/posts'
 			expect(page).to have_content 'likes: 0'
 		end
@@ -12,7 +12,7 @@ describe 'user can like posts' do
 	describe 'liking a post' do
 		before do
 			sign_up
-			Post.create(message: "Please like me!")
+			create_post
 			visit '/posts'
 		end
 

@@ -6,7 +6,9 @@
   <% @posts.reverse.each do |post| %>
   	<p>
       <section class="posts">
+				<%= User.find(post.user_id).email %> posted:
         <%= auto_link(post.message) %> -
+
       </section>
   		<%= link_to 'Show', post_path(post) %><br>
     	Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
