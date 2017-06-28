@@ -3,16 +3,16 @@
 <% end %>
 
 
-  <% @posts.reverse.each do |post| %>
-  	<p>
-      <section class="posts">
-				<%= User.find(post.user_id).email %> posted:
-        <%= auto_link(post.message) %> -
-
-      </section>
-  		<%= link_to 'Show', post_path(post) %><br>
-    	Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
-			likes: <%= Like.where(post_id: post.id).size %>
-  		<%= link_to 'Like', post_likes_path(post), method: :post %>
-  	</p>
-  <% end %>
+<% @posts.reverse.each do |post| %>
+<div class="panel panel-default">
+  <div class="panel-heading"><%= User.find(post.user_id).email %> posted:</div>
+  <div class="panel-body">
+    <section class="posts">
+    <%= auto_link(post.message) %>
+    </section>
+    <%= link_to 'Show', post_path(post) %>
+  </div>
+  <div class="panel-footer">Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
+  Likes: <%= Like.where(post_id: post.id).size  %>   <%= link_to 'Like', post_likes_path(post), method: :post %></div>
+</div>
+<% end %>
