@@ -1,9 +1,14 @@
-<p>
-  <strong>Post:</strong>
-  <section class="posts">
+<div class="panel panel-default">
+  <div class="panel-heading"><%= User.find(@post.user_id).email %> posted:</div>
+  <div class="panel-body">
+    <section class="posts">
     <%= auto_link(@post.message) %>
-  </section>
-</p>
+    </section>
+    <%= link_to 'Show', post_path(@post) %>
+  </div>
+  <div class="panel-footer">Posted at - <%= @post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
+  Likes: <%= Like.where(post_id: @post.id).size  %> </div>
+</div>
 
 <% @post.comments.each do |comment| %>
 	<p> <%= comment.commenter %> says: <br>
