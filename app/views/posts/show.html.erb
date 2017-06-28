@@ -1,13 +1,13 @@
 <p>
   <strong>Post:</strong>
   <section class="posts">
-    <%= @post.message %>
+    <%= auto_link(@post.message) %>
   </section>
 </p>
 
 <% @post.comments.each do |comment| %>
 	<p> <%= comment.commenter %> says: <br>
-	<%= comment.body %>
+	<%= auto_link(comment.body) %>
 <% end %>
 
 <h2>Add a comment:</h2>
