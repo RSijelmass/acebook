@@ -4,8 +4,7 @@ RSpec.feature "Commenting", type: :feature do
 
   scenario "Can submit comments on existing posts and view them" do
     sign_up
-    Post.create(message: "Test Post")
-    visit '/posts'
+		create_post
     click_link('Show')
     fill_in "Commenter", with: "Rita"
     fill_in "Body", with: "I approve this message! :thumbsup:"
