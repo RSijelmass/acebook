@@ -12,7 +12,7 @@
       </section>
   		<%= link_to 'Show', post_path(post) %><br>
     	Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
-  		likes: <%= post.likes %> -
+			likes: <%= Like.where(post_id: post.id).size %>
   		<%= link_to 'Like', post_likes_path(post), method: :post %>
   	</p>
   <% end %>
