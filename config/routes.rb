@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
+  get 'sources/index'
+
+  get 'sources/import'
+
   resources :passwords, controller: "clearance/passwords", only: [:create, :new]
   resource :session, controller: "clearance/sessions", only: [:create]
 
