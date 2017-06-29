@@ -21,7 +21,7 @@ describe 'user can flag posts' do
     it 'user can only see their own flags' do
       click_link 'Flag Post'
       click_button 'Sign out'
-      sign_up_other
+      sign_up('rita@curd.com')
       expect(page).not_to have_css("img[src*='https://www.emojibase.com/resources/img/emojis/apple/x1f4a9.png.pagespeed.ic.292Eth5N9Z.png']")
     end
 
