@@ -5,7 +5,7 @@ describe 'user can like posts' do
 			sign_up
 			create_post
 			visit '/posts'
-			expect(page).to have_content 'likes: 0'
+			expect(page).to have_content 'Likes: 0'
 		end
 	end
 
@@ -18,13 +18,13 @@ describe 'user can like posts' do
 
 		it 'user can like a post' do
 			click_link 'Like'
-			expect(page).to have_content 'likes: 1'
+			expect(page).to have_content 'Likes: 1'
 		end
 
 		it 'only once each' do
 			click_link 'Like'
 			click_link 'Like'
-			expect(page).to have_content 'likes: 0'
+			expect(page).to have_content 'Likes: 0'
 		end
 	end
 

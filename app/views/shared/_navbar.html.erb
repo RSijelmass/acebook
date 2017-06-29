@@ -16,17 +16,17 @@
     <span class="icon-bar"></span>
     <span class="icon-bar"></span>
   </button>
-  <a class="navbar-brand" href="#">ACEBOOK</a>
+  <a class="navbar-brand" href="/posts">ACEBOOK</a>
 </div>
 
 <!-- Collect the nav links, forms, and other content for toggling -->
 <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
   <ul class="nav navbar-nav">
     <% if current_user != nil %>
-      <li class="active"><a href="#">Newsfeed<span class="sr-only">(current)</span></a></li>
+      <li class="active"><a href="/posts">Newsfeed<span class="sr-only">(current)</span></a></li>
       <li><a href="#">My Profile</a></li>
-    <form class="navbar-form navbar-left">
-      <li><button type="submit" class="btn btn-default" id="new-post">Post Something</button></li>
+    <form class="navbar-form navbar-left" method="GET" action="/posts/new">
+      <li><%= button_to 'Post Something', new_post_path, class: 'btn btn-default'  %></li>
     </form>
     <% end %>
   </ul>
