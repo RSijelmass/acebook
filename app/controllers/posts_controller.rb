@@ -3,16 +3,7 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.sort_by &:created_at
-    links = Source.pluck(:url)
-    p links
-    @posts.each do |post|
-      links.each do |link|
-        if post.message.include?(link)
-          p link
-        end
-      end
-    end
-
+    @source = check_against_source(@posts)
   end
 
   def show
@@ -38,5 +29,16 @@ class PostsController < ApplicationController
 
   def post_params
     params.require(:post).permit(:message).merge(user_id: current_user.id)
+  end
+
+  def check_against_source(posts)
+    links = Source.pluck(:url)
+    posts.each do |post|
+      links.each do |link|
+        if post.message.include?(link)
+          return Source.where(url: link)
+        end
+      end
+    end
   end
 end
