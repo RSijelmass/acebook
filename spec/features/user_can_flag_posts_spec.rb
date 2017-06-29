@@ -1,6 +1,6 @@
 describe 'user can flag posts' do
 
-	describe 'flaging a post' do
+	describe 'flagging a post' do
 		before do
 			sign_up
 			create_post
