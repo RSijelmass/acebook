@@ -3,6 +3,16 @@ class PostsController < ApplicationController
 
   def index
     @posts = Post.all.sort_by &:created_at
+    links = Source.pluck(:url)
+    p links
+    @posts.each do |post|
+      links.each do |link|
+        if post.message.include?(link)
+          p link
+        end
+      end
+    end
+
   end
 
   def show
@@ -20,7 +30,7 @@ class PostsController < ApplicationController
 	end
 
   def create
-    @post = Post.create(post_params) 
+    @post = Post.create(post_params)
     redirect_to posts_url
   end
 
