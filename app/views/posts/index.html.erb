@@ -19,6 +19,9 @@
         <%= link_to 'Flag Post', post_flags_path(post), method: :post %>
     </div>
     <div class="panel-footer-right">
+      <% if post.source_id %>
+        <%= Source.find_by(id: post.source_id).type_one %>
+      <% end %>
       <% if Flag.where(user_id: current_user.id, post_id: post.id).exists? %>
         <img class="flag-picture" src="https://www.emojibase.com/resources/img/emojis/apple/x1f4a9.png.pagespeed.ic.292Eth5N9Z.png">
       <% end %>
