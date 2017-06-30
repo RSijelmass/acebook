@@ -19,9 +19,9 @@
           <ul class="nav navbar-nav">
             <% if current_user != nil %>
               <li class="active"><a href="/posts">Newsfeed<span class="sr-only">(current)</span></a></li>
-              <li><a href="#">My Profile</a></li>
+              <li><%= link_to 'My Profile', user_path(current_user) %></li>
               <form class="navbar-form navbar-left" method="GET" action="/posts/new">
-                <li><%= button_to 'Post Something', new_post_path, class: 'btn btn-default'  %></li>
+                <li><%= button_to 'Post Something', new_post_path, method: :get, class: 'btn btn-default'  %></li>
               </form>
             <% end %>
          </ul>
