@@ -5,7 +5,7 @@
 
 <% @posts.reverse.each do |post| %>
 <div class="panel panel-default">
-  <div class="panel-heading"><%= User.find(post.user_id).email %> posted:</div>
+  <div class="panel-heading"><%= User.find(post.user_id).username %> posted:</div>
   <div class="panel-body">
     <section class="posts">
     <%= auto_link(post.message) %>
@@ -16,7 +16,8 @@
     <div class="panel-footer-left">
       Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
       Likes: <%= Like.where(post_id: post.id).size  %>   <%= link_to 'Like', post_likes_path(post), method: :post %>
-        <%= link_to 'Flag Post', post_flags_path(post), method: :post %>
+      |       
+      <%= link_to 'Flag Post', post_flags_path(post), method: :post %>
     </div>
     <div class="panel-footer-right">
       <% if Flag.where(user_id: current_user.id, post_id: post.id).exists? %>
