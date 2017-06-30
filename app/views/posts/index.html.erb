@@ -9,6 +9,10 @@
   <div class="panel-body">
     <section class="posts">
     <%= auto_link(post.message) %>
+    <% if post.image %>
+    <%= image_tag post.image %>
+    <% p 'IMAGE SHOULD BE HERE', post.image %>
+    <% end %>
     </section>
     <%= link_to 'Show', post_path(post) %>
   </div>

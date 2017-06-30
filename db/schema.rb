@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20170629171935) do
+ActiveRecord::Schema.define(version: 20170630140211) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 20170629171935) do
     t.integer "likes", default: 0
     t.integer "user_id"
     t.bigint "source_id"
+    t.string "image"
     t.index ["source_id"], name: "index_posts_on_source_id"
   end
 
