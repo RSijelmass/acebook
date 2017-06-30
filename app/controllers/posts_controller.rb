@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @source = Source.find_by(id: @post.source_id)
   end
 
   def new
