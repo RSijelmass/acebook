@@ -5,7 +5,7 @@
 
 <% @posts.reverse.each do |post| %>
 <div class="panel panel-default">
-  <div class="panel-heading"><%= User.find(post.user_id).email %> posted:</div>
+  <div class="panel-heading"><%= User.find(post.user_id).username %> posted:</div>
   <div class="panel-body">
     <section class="posts">
     <%= auto_link(post.message) %>
