@@ -6,7 +6,9 @@
  }
 
  .main {
-   padding: 20px;
+   max-width: 1000px;
+   float: none;
+   margin: 0 auto;
  }
 
  .panel-footer-left {
@@ -22,6 +24,8 @@
    height: 30px;
  }
 
- .warning {
-   background-color: red
- }
+.container-fluid {
+  max-width: 1000px;
+  float: none;
+  margin: 0 auto;
+}
