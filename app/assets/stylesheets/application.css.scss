@@ -6,7 +6,9 @@
  }
 
  .main {
-   padding: 20px;
+   max-width: 1000px;
+   float: none;
+   margin: 0 auto;
  }
 
  .panel-footer-left {
@@ -21,3 +23,9 @@
    width: 30px;
    height: 30px;
  }
+
+.container-fluid {
+  max-width: 1000px;
+  float: none;
+  margin: 0 auto;
+}
