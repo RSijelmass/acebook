@@ -7,6 +7,7 @@ class PostsController < ApplicationController
 
   def show
     @post = Post.find(params[:id])
+    @source = Source.find_by(id: @post.source_id)
   end
 
   def new
@@ -20,7 +21,7 @@ class PostsController < ApplicationController
 	end
 
   def create
-    @post = Post.create(post_params) 
+    Post.build(post_params)
     redirect_to posts_url
   end
 
