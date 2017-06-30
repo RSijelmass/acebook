@@ -9,8 +9,21 @@
   <div class="panel-footer">Posted at - <%= @post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
   Likes: <%= Like.where(post_id: @post.id).size  %> </div>
 </div>
-
-
+<% if @post.source_id %>
+<div class="panel-group pull-right">
+  <div class="panel panel-danger">
+    <div class="panel-heading">Warning: This website has been flagged as unreliable</div>
+    <div class="panel-body">
+    <span class="label label-danger pull-left"><%= @source.type_one%></span>
+    <span class="label label-danger pull-left"><%= @source.type_two %></span>
+    <span class="label label-danger pull-left"><%= @source.type_three %></span>
+     </div>
+     <div class="panel-footer">
+     Origin: <%= @source.source %>
+   </div>
+  </div>
+</div>
+<% end %>
 
 <% @post.comments.each do |comment| %>
 

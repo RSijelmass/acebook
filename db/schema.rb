@@ -51,6 +51,20 @@ ActiveRecord::Schema.define(version: 20170629165415) do
     t.datetime "updated_at", null: false
     t.integer "likes", default: 0
     t.integer "user_id"
+    t.bigint "source_id"
+    t.index ["source_id"], name: "index_posts_on_source_id"
+  end
+
+  create_table "sources", force: :cascade do |t|
+    t.string "url"
+    t.string "type_one"
+    t.string "type_two"
+    t.string "type_three"
+    t.string "notes"
+    t.string "location"
+    t.string "source"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
   create_table "users", force: :cascade do |t|
@@ -72,4 +86,5 @@ ActiveRecord::Schema.define(version: 20170629165415) do
   add_foreign_key "flags", "users"
   add_foreign_key "likes", "posts"
   add_foreign_key "likes", "users"
+  add_foreign_key "posts", "sources"
 end

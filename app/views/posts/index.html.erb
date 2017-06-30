@@ -12,19 +12,21 @@
     </section>
     <%= link_to 'Show', post_path(post) %>
   </div>
-  <div class="panel-footer" >
-    <div class="panel-footer-left">
-      Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
-      Likes: <%= Like.where(post_id: post.id).size  %>   <%= link_to 'Like', post_likes_path(post), method: :post %>
-      |       
-      <%= link_to 'Flag Post', post_flags_path(post), method: :post %>
+    <div class="panel-footer" >
+      <div class="panel-footer-left">
+        Posted at - <%= post.created_at.strftime('%-d/%m/%Y %H:%M') %><br>
+        Likes: <%= Like.where(post_id: post.id).size  %>   <%= link_to 'Like', post_likes_path(post), method: :post %>
+          <%= link_to 'Flag Post', post_flags_path(post), method: :post %>
+      </div>
+      <div class="panel-footer-right">
+        <% if post.source_id %>
+        <span class="label label-danger"><%= Source.find_by(id: post.source_id).type_one %></span>
+        <% end %>
+        <% if Flag.where(user_id: current_user.id, post_id: post.id).exists? %>
+          <img class="flag-picture" src="https://www.emojibase.com/resources/img/emojis/apple/x1f4a9.png.pagespeed.ic.292Eth5N9Z.png">
+        <% end %>
+      </div>
+      <div style="clear: both;"></div>
     </div>
-    <div class="panel-footer-right">
-      <% if Flag.where(user_id: current_user.id, post_id: post.id).exists? %>
-        <img class="flag-picture" src="https://www.emojibase.com/resources/img/emojis/apple/x1f4a9.png.pagespeed.ic.292Eth5N9Z.png">
-      <% end %>
-    </div>
-    <div style="clear: both;"></div>
   </div>
-</div>
 <% end %>
