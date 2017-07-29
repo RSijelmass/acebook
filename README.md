@@ -1,28 +1,30 @@
-# AceBook
+# Newsworthy
 
-**Coaches: Fork this repository to `acebook-cohortname` and customize
-the below**
+## Purpose
 
-[You can find the week outline here.](https://github.com/makersacademy/course/tree/acebook/acebook)
+The 'Acebook' application is a light Facebook clone built in Ruby on Rails. The following functionality is implemented:
+* Sign In / Sign Out
+* View a newsfeed of all posts
+* View your own posts
+* Create a new post
+* Image upload when creating a post
+* Comment on a post
+* 'Like' a post
+* Flag a post
+* A blacklist-based 'fake news' filter which flags news articles from potentially disreputable sources
 
-The card wall is here: [[[]]]
+## Technology and Instructions
 
-## How to contribute to this project
-See [CONTRIBUTING.md](CONTRIBUTING.md)
+Acebook was built using Ruby on Rails. It is deployed live on Heroku - http://theacebook.herokuapp.com
 
-## Quickstart
+## Authors
+* Roland Grenke - https://github.com/rogrenke
+* Toby Hasler-Winter - https://github.com/tobywinter
+* Colin Scally - https://github.com/cdscally
+* Rita Sijelmass - https://github.com/RSijelmass
 
-First, clone this repository. Then:
+## Context
 
-```bash
-bundle install
-bin/rails db:create
-bin/rails db:migrate
+The application was developed by a team of 4 developers over the course of a week as part of the Makers Academy Software Development Bootcamp.
 
-bundle exec rspec # Run the tests to ensure it works
-bin/rails server # Start the server at localhost:3000
-```
-
-
-Fake News API used:
-...
+This project required all members of the team to pick up a new framework, having no previous experience using Ruby on Rails.
